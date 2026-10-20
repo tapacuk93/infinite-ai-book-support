@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite AI Book — Privacy Policy</title>
+<meta name="description" content="Privacy policy for Infinite AI Book: what is sent to which AI provider, how the AICoin relay works, and what syncs through your own iCloud account.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<nav><a href="./">Support &amp; FAQ</a><a href="PRIVACY.html">Privacy Policy</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></nav>
+
+<h1>Privacy Policy</h1>
+<p class="meta"><strong>Last updated: 2026-10-21</strong></p>
+
+<p>Infinite AI Book (iPhone, iPad, and Mac) is designed to collect as little data as possible. This policy explains exactly what the app does and does not do with your information, and applies the same way on every platform.</p>
+
+<h2>Data we don't collect</h2>
+<p>Infinite AI Book has no user accounts, no sign-in, no analytics or tracking SDKs, and no ads. It does not track you across apps or websites. We (the developer) do not receive, store, or have access to your topics, your books, or your reading history beyond what's needed to relay AI requests, described below.</p>
+
+<h2>Consent before first use</h2>
+<p>Before the first book is written, the app shows a screen explaining what is sent where — the same information as this policy — and nothing is sent to any AI provider until you tap "I understand and agree". That agreement is recorded only on the device where you gave it.</p>
+
+<h2>How AI requests work (no personal API keys)</h2>
+<p>The app does <strong>not</strong> ask you for your own AI provider API key. Every request to write, translate, illustrate, or narrate the book is sent to our own relay server, <strong>aicoin-proxy</strong>, at <code>proxy.aicoin.oeaio.com</code>. aicoin-proxy adds its own paid credential for whichever AI provider the request is for, forwards your request, and returns the response — you never handle or expose a provider credential, and we never see one of yours because there isn't one.</p>
+<p><strong>AI calls are paid for in AICoin, priced by what they cost to run.</strong> Each section, translation, picture, or natural-voice passage costs from 1 AICoin — a short call costs one, a longer one costs more, and the consortium (several models writing and reviewing a section together) costs more than a single model. The charge is worked out from the provider's own usage figures for that call and debited from your wallet at the moment of the call; the relay reports it back to the app, so what you were charged is never hidden from you. Sections written ahead of you (Settings → Reading, or Download ahead in the reader) are paid for when they are written.</p>
+
+<h3>The provider credential is shared by everyone</h3>
+<p>There is one relay account per AI provider, and every user's requests go through it. To the provider, all of this app's traffic looks like a single customer — ours — rather than like you. The providers are never given a per-user account, key, or identifier, and your wallet address, which the relay uses to debit the call, is not forwarded to them.</p>
+<p>That has consequences worth stating plainly:</p>
+<ul>
+  <li><strong>Your usage affects other readers.</strong> Rate limits, quotas, and spending caps apply to the shared credential as a whole. Heavy use, or a burst of requests, can slow down or temporarily block writing for everyone using the app, not just for you.</li>
+  <li><strong>So does what you type.</strong> Providers enforce their own usage policies at the account level. Content that trips a provider's safety systems is attributed to the shared credential, and repeated violations can get it rate-limited, restricted, or suspended — which would stop the app working for every user until it is resolved. Please don't ask for anything you wouldn't want charged to a shared account.</li>
+  <li><strong>Provider-side features are account-scoped.</strong> Anything a provider does per account rather than per end user — abuse scoring, caching, aggregate logging — covers all of this app's traffic together.</li>
+</ul>
+<p>What this does <strong>not</strong> mean: your topics and your books are not pooled, mixed into other people's books, or shown to other users by the app. Each section is written from your own request and returned only to your device. The sharing described here is of the provider <em>account</em>, not of your content.</p>
+
+<h2>What is sent to the AI providers</h2>
+<p>Through the relay described above, and only for the purpose named:</p>
+<ul>
+  <li><strong>Writing and translation</strong> — the topic you enter, the book's title, and its outline — the titles of the section being written, its neighbouring sections, its subsections, and the section you read just before it — are sent to the AI model writing it: Anthropic (Claude), OpenAI (ChatGPT), Google (Gemini), Mistral, or Moonshot AI (Kimi), depending on your choice in Settings → AI → Written by. With "Consortium" or "Automatic", or when your chosen model is unavailable and another takes over, the request may go to any of them; with the consortium, the draft of the section also passes between the models that review it. Translating the book into another language sends the section titles and the existing section text to be translated. Outlines, divisions, and translations use a fast model from the same providers.</li>
+  <li><strong>Pictures</strong> — when a section calls for a picture, a short description of it, drawn from the section, is sent to Stability AI, Google, or OpenAI to draw it.</li>
+  <li><strong>Natural voice</strong> — if listening uses the Natural voice, the text being read aloud is sent to ElevenLabs to generate speech. With "Device voice", speech is made on your device and nothing is sent.</li>
+  <li><strong>Topic suggestions</strong> — to suggest new books on the library shelf, your recent topics and the titles of sections you dived deepest into are sent to a fast model from the providers above.</li>
+  <li><strong>Rewrites</strong> — the relay tells the app which models currently stand behind each provider, so it can offer to rewrite a section you've read when a newer model is available. If you accept, the section is written again exactly as above.</li>
+</ul>
+<p>This content is never sent anywhere else, and is processed under each provider's own data-handling policy:</p>
+<ul>
+  <li><a href="https://www.anthropic.com/legal/privacy">Anthropic's privacy policy</a></li>
+  <li><a href="https://openai.com/policies/privacy-policy/">OpenAI's privacy policy</a></li>
+  <li><a href="https://policies.google.com/privacy">Google's privacy policy</a></li>
+  <li><a href="https://mistral.ai/terms#privacy-policy">Mistral AI's privacy policy</a></li>
+  <li><a href="https://platform.moonshot.ai/docs/agreement/userprivacy">Moonshot AI (Kimi) privacy policy</a></li>
+  <li><a href="https://stability.ai/privacy-policy">Stability AI's privacy policy</a></li>
+  <li><a href="https://elevenlabs.io/privacy">ElevenLabs' privacy policy</a></li>
+</ul>
+
+<h2>AICoin wallet</h2>
+<p>Your wallet is identified by a keypair generated on your device and stored in the Keychain — we never see your private key. The key is kept in iCloud Keychain so that the same wallet, and the same balance, follow you to your other devices signed into your Apple Account; it is end-to-end encrypted by Apple and never reaches us.</p>
+<p>You get AICoin by <strong>buying it</strong>, via an in-app purchase of AICoin (a consumable) processed entirely by Apple through StoreKit. We never see or store your payment details — Apple handles billing, receipts, and refunds directly. A successful purchase credits your wallet by contacting <code>proxy.aicoin.oeaio.com</code> with Apple's own signed proof of purchase.</p>
+<p>Your wallet address and balance are stored server-side at <code>proxy.aicoin.oeaio.com</code> (see <a href="https://aicoin.oeaio.com">aicoin.oeaio.com</a> for how the ledger works) — this is necessary for the wallet to function across devices and to debit calls, and is not linked to your name, email, or Apple ID.</p>
+
+<h2>Your books and settings (your own iCloud)</h2>
+<p>Your books — their outlines, the sections written, the pictures drawn, and where you are in each — are stored on your device and, if you're signed into iCloud, synced to your other devices through your own iCloud account (CloudKit, in your private database). Your reading settings and recent topics are synced through iCloud's key-value store. This data is only ever accessible to you, through your own Apple Account; we have no access to it. You can clear your recent topics at any time from Settings → History.</p>
+
+<h2>Third parties</h2>
+<p>The only third parties involved are:</p>
+<ul>
+  <li><strong>aicoin-proxy</strong> (<code>proxy.aicoin.oeaio.com</code>, operated by us) — relays every AI request below with its own paid credentials, one set shared by every user, and debits your wallet; see <a href="https://aicoin.oeaio.com">aicoin.oeaio.com</a> for how it works.</li>
+  <li><strong>Anthropic, OpenAI, Google, Mistral AI, Moonshot AI (Kimi)</strong> — write the book's outline and sections, translate them, and suggest topics.</li>
+  <li><strong>Stability AI, Google, OpenAI</strong> — draw pictures for sections.</li>
+  <li><strong>ElevenLabs</strong> — only when listening with the Natural voice, to generate spoken audio from the text being read.</li>
+  <li><strong>Apple</strong> — iCloud (CloudKit, key-value store, and Keychain, for sync) and StoreKit (for AICoin purchases), both under your own Apple Account and governed by Apple's own privacy policy.</li>
+</ul>
+<p>We don't share data with anyone else, and we don't sell data — there's no data collected on our end to sell.</p>
+
+<h2>Children</h2>
+<p>The app is not directed at children and collects no personal information from anyone.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the update will be posted here with a new "Last updated" date.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy? Email <strong><a href="mailto:tapacuk93@gmail.com">tapacuk93@gmail.com</a></strong> or <a href="https://github.com/tapacuk93/infinite-ai-book-support/issues">open an issue</a>.</p>
+
+<footer>Infinite AI Book · <a href="./">Support &amp; FAQ</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></footer>
+</main>
+</body>
+</html>
