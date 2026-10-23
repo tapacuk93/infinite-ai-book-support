@@ -12,7 +12,7 @@
 <nav><a href="./">Support &amp; FAQ</a><a href="PRIVACY.html">Privacy Policy</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></nav>
 
 <h1>Privacy Policy</h1>
-<p class="meta"><strong>Last updated: 2026-10-21</strong></p>
+<p class="meta"><strong>Last updated: 2026-10-23</strong></p>
 
 <p>Infinite AI Book (iPhone, iPad, and Mac) is designed to collect as little data as possible. This policy explains exactly what the app does and does not do with your information, and applies the same way on every platform.</p>
 
@@ -35,6 +35,13 @@
   <li><strong>Provider-side features are account-scoped.</strong> Anything a provider does per account rather than per end user — abuse scoring, caching, aggregate logging — covers all of this app's traffic together.</li>
 </ul>
 <p>What this does <strong>not</strong> mean: your topics and your books are not pooled, mixed into other people's books, or shown to other users by the app. Each section is written from your own request and returned only to your device. The sharing described here is of the provider <em>account</em>, not of your content.</p>
+
+<h3>What the relay keeps, and what the providers keep</h3>
+<ul>
+  <li><strong>The relay does not log or store what you send or get back</strong> — no topics, outlines, sections, translations, pictures, or audio. For each request it keeps only a line of metadata: the time, the kind of request and the provider's endpoint (without query parameters; for the Natural voice this includes the ID of the voice used), which provider, your wallet address, the result status, sizes, timings, and the AICoin charged. Those logs rotate and are capped in size.</li>
+  <li><strong>The AI providers do receive your requests</strong>, and keep them under their own retention policies (linked below) — the same as for any other customer of theirs.</li>
+  <li><strong>Nothing you send is stored on a provider where other users could reach it.</strong> Because the provider account is shared, the relay only forwards requests to providers' generation endpoints, and refuses the provider features that store things on the account — file uploads, batch jobs, stored responses and conversations, caches, generation history, and saved voices.</li>
+</ul>
 
 <h2>What is sent to the AI providers</h2>
 <p>Through the relay described above, and only for the purpose named:</p>
